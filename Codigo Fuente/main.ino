@@ -63,7 +63,7 @@ void measureDistance(void *pvParameters) {
 void calculateLateralMovement(void *pvParameters) {
   for (;;) {
     // Cálculo de movimiento lateral
-    float lateralMovement = distance1 - distance2;
+    float lateralMovement = distance2 - distance1;
     
     // Aquí puedes añadir el código para actuar sobre motores u otro mecanismo
     // para realizar el movimiento lateral basado en la variable lateralMovement.
