@@ -27,3 +27,35 @@ void setup() {
 }
 
 loop() {}
+
+void measureDistance(void *pvParameters) {
+  for (;;) {
+    // Sensor 1
+    digitalWrite(trigPin1, LOW);
+    delayMicroseconds(2);
+    digitalWrite(trigPin1, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin1, LOW);
+    float duration1 = pulseIn(echoPin1, HIGH);
+    distance1 = (duration1 * 0.034) / 2;
+    
+    // Sensor 2
+    digitalWrite(trigPin2, LOW);
+    delayMicroseconds(2);
+    digitalWrite(trigPin2, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin2, LOW);
+    float duration2 = pulseIn(echoPin2, HIGH);
+    distance2 = (duration2 * 0.034) / 2;
+
+    // Imprimir distancias para depuración
+    Serial.print("Distance 1: ");
+    Serial.print(distance1);
+    Serial.print(" cm, Distance 2: ");
+    Serial.print(distance2);
+    Serial.println(" cm");
+
+    // Esperar 200 ms antes de la siguiente medición
+    vTaskDelay(pdMS_TO_TICKS(200));
+  }
+}
