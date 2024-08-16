@@ -59,3 +59,20 @@ void measureDistance(void *pvParameters) {
     vTaskDelay(pdMS_TO_TICKS(200));
   }
 }
+
+void calculateLateralMovement(void *pvParameters) {
+  for (;;) {
+    // Cálculo de movimiento lateral
+    float lateralMovement = distance1 - distance2;
+    
+    // Aquí puedes añadir el código para actuar sobre motores u otro mecanismo
+    // para realizar el movimiento lateral basado en la variable lateralMovement.
+    
+    // Imprimir el resultado para depuración
+    Serial.print("Lateral Movement: ");
+    Serial.println(lateralMovement);
+    
+    // Esperar 200 ms antes de la siguiente ejecución
+    vTaskDelay(pdMS_TO_TICKS(200));
+  }
+}
