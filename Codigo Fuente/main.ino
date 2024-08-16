@@ -18,6 +18,12 @@ void calculateLateralMovement(void *pvParameters);
 // Setup
 void setup() {
   Serial.begin(9600);
+// Configuración de los pines
+  pinMode(trigPin1, OUTPUT);
+  pinMode(echoPin1, INPUT);
+  pinMode(trigPin2, OUTPUT);
+  pinMode(echoPin2, INPUT);
+
 }
 
 loop() {}
